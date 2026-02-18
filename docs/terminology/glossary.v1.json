@@ -1,0 +1,383 @@
+{
+  "v": 1,
+  "generatedAt": "2026-02-05T00:00:00Z",
+  "anchors": [
+    { "id": "unicode-glossary", "specPath": "https://www.unicode.org/glossary/" },
+    { "id": "unicode-principles", "specPath": "https://www.unicode.org/standard/principles.html" },
+    { "id": "w3c-characters", "specPath": "https://www.w3.org/TR/charmod-norm/#dfn-character" },
+    { "id": "w3c-i18n-glossary", "specPath": "https://www.w3.org/TR/i18n-glossary/" },
+    { "id": "mdn-code-point", "specPath": "https://developer.mozilla.org/en-US/docs/Glossary/Code_point" }
+  ],
+  "terms": [
+    {
+      "term": "text",
+      "kind": "docs",
+      "definition": "Input treated as Unicode text in this repo, either as a JavaScript string or UTF-8 bytes.",
+      "preferredPhrases": ["Unicode text"],
+      "nonDefinition": ["natural-language meaning"],
+      "anchoredBy": ["unicode-principles", "w3c-i18n-glossary"]
+    },
+    {
+      "term": "string",
+      "kind": "docs",
+      "definition": "A JavaScript string interpreted as UTF-16 code units.",
+      "preferredPhrases": ["JavaScript string"],
+      "units": ["UTF-16 code units"],
+      "anchoredBy": ["mdn-code-point"]
+    },
+    {
+      "term": "code unit",
+      "kind": "unicode",
+      "definition": "A single UTF-16 code unit within a JavaScript string.",
+      "preferredPhrases": ["UTF-16 code unit"],
+      "discouragedPhrases": ["character"],
+      "units": ["UTF-16 code units"],
+      "anchoredBy": ["unicode-glossary", "w3c-characters"]
+    },
+    {
+      "term": "code point",
+      "kind": "unicode",
+      "definition": "A Unicode code point value; in this repo the term refers to Unicode scalar values.",
+      "preferredPhrases": ["Unicode scalar value"],
+      "discouragedPhrases": ["character"],
+      "units": ["Unicode scalar values"],
+      "anchoredBy": ["unicode-glossary", "mdn-code-point"]
+    },
+    {
+      "term": "Unicode scalar value",
+      "kind": "unicode",
+      "definition": "A Unicode code point excluding surrogate code points.",
+      "aliases": ["scalar value"],
+      "units": ["Unicode scalar values"],
+      "anchoredBy": ["unicode-glossary", "unicode-principles"]
+    },
+    {
+      "term": "surrogate",
+      "kind": "unicode",
+      "definition": "A UTF-16 code unit in the surrogate range (D800–DFFF).",
+      "preferredPhrases": ["surrogate code unit"],
+      "units": ["UTF-16 code units"],
+      "anchoredBy": ["unicode-glossary", "w3c-characters"]
+    },
+    {
+      "term": "lone surrogate",
+      "kind": "unicode",
+      "definition": "A surrogate code unit that is not part of a valid surrogate pair.",
+      "anchoredBy": ["unicode-glossary", "w3c-characters"]
+    },
+    {
+      "term": "well-formed",
+      "kind": "unicode",
+      "definition": "Unicode text without lone surrogates; equivalent to well-formed UTF-16 in this repo.",
+      "discouragedPhrases": ["valid"],
+      "anchoredBy": ["unicode-glossary", "w3c-characters"]
+    },
+    {
+      "term": "grapheme cluster",
+      "kind": "unicode",
+      "definition": "A user-perceived character cluster as defined by UAX #29 segmentation rules.",
+      "preferredPhrases": ["grapheme cluster (UAX #29)"],
+      "discouragedPhrases": ["character"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "word boundary token",
+      "kind": "unicode",
+      "definition": "A token produced by UAX #29 word boundary segmentation, not a lexical word.",
+      "preferredPhrases": ["word boundary token (UAX #29)"],
+      "discouragedPhrases": ["word", "words"],
+      "nonDefinition": ["lexical word", "language token"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "sentence boundary",
+      "kind": "unicode",
+      "definition": "A boundary produced by UAX #29 sentence segmentation.",
+      "preferredPhrases": ["sentence boundary (UAX #29)"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "span",
+      "kind": "protocol",
+      "definition": "A half-open range in UTF-16 code unit indices: {startCU, endCU}.",
+      "units": ["UTF-16 code units"],
+      "examples": [{ "good": "{\"startCU\":0,\"endCU\":5}", "bad": "{\"start\":0,\"end\":5}" }]
+    },
+    {
+      "term": "canonicalization",
+      "kind": "protocol",
+      "definition": "JSON Canonicalization Scheme (JCS) as used for deterministic hashes.",
+      "preferredPhrases": ["JCS canonicalization"],
+      "nonDefinition": ["Unicode normalization"],
+      "anchoredBy": ["unicode-principles"]
+    },
+    {
+      "term": "normalization",
+      "kind": "unicode",
+      "definition": "Unicode normalization of text to NFC, NFD, NFKC, or NFKD.",
+      "preferredPhrases": ["Unicode normalization"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "deterministic",
+      "kind": "protocol",
+      "definition": "Same input and options produce identical outputs, including ordering.",
+      "anchoredBy": ["unicode-principles"]
+    },
+    {
+      "term": "conformance test",
+      "kind": "protocol",
+      "definition": "A test derived from official spec test vectors and expected outputs.",
+      "preferredPhrases": ["spec conformance test"]
+    },
+    {
+      "term": "property-based test",
+      "kind": "protocol",
+      "definition": "A test that checks invariants across generated inputs rather than fixed examples.",
+      "aliases": ["PBT"]
+    },
+    {
+      "term": "metamorphic test",
+      "kind": "protocol",
+      "definition": "A test that checks invariant relationships between transformed inputs.",
+      "aliases": ["metamorphic testing"]
+    },
+    {
+      "term": "holdout test",
+      "kind": "protocol",
+      "definition": "A test run with fixed seeds or inputs held aside from routine suites.",
+      "aliases": ["holdout PBT"]
+    },
+    {
+      "term": "dossier",
+      "kind": "repo",
+      "definition": "A machine-readable method dossier documenting claims, falsifiers, and evidence.",
+      "preferredPhrases": ["method dossier"]
+    },
+    {
+      "term": "contradiction register",
+      "kind": "repo",
+      "definition": "A tracked list of unresolved tradeoffs with evidence requirements.",
+      "preferredPhrases": ["contradictions.v1.json"]
+    },
+    {
+      "term": "closed system",
+      "kind": "docs",
+      "definition": "A repo where every artifact has an explicit place, relationship, and audit path.",
+      "preferredPhrases": ["closed-system repo"]
+    },
+    {
+      "term": "orphan",
+      "kind": "docs",
+      "definition": "An artifact not reachable via declared manifests or required entrypoints.",
+      "preferredPhrases": ["orphan artifact"]
+    },
+    {
+      "term": "duplication",
+      "kind": "docs",
+      "definition": "Measured similarity between documents using deterministic fingerprint metrics.",
+      "nonDefinition": ["semantic equivalence"],
+      "preferredPhrases": ["similarity report"],
+      "anchoredBy": ["unicode-principles"]
+    },
+    {
+      "term": "entropy",
+      "kind": "docs",
+      "definition": "Shorthand for repo sprawl; use the explicit entropy (repo) tuple for metrics.",
+      "preferredPhrases": ["entropy (repo)"]
+    },
+    {
+      "term": "consolidation",
+      "kind": "docs",
+      "definition": "Reducing surface area by merging overlapping artifacts or entrypoints without removing capability.",
+      "nonDefinition": ["aggregation"],
+      "preferredPhrases": ["surface consolidation"]
+    },
+    {
+      "term": "pruning",
+      "kind": "docs",
+      "definition": "Removing redundant or low-signal artifacts while preserving canonical references.",
+      "preferredPhrases": ["artifact pruning"]
+    },
+    {
+      "term": "entrypoint",
+      "kind": "docs",
+      "definition": "An exported module path declared in `package.json`/`deno.json` that resolves to a `mod.ts` entry.",
+      "preferredPhrases": ["module entrypoint", "public entrypoint"]
+    },
+    {
+      "term": "barrel export",
+      "kind": "docs",
+      "definition": "A module that re-exports many submodules via `export *`, often reducing tree-shaking precision.",
+      "preferredPhrases": ["barrel re-export"]
+    },
+    {
+      "term": "surface area",
+      "kind": "docs",
+      "definition": "Total public API exposed through entrypoints and root exports.",
+      "nonDefinition": ["internal complexity"],
+      "aliases": ["surface area (repo)"],
+      "preferredPhrases": ["API surface area"]
+    },
+    {
+      "term": "cognitive load",
+      "kind": "docs",
+      "definition": "Effort required to locate, interpret, and trust sources of truth inside the repo.",
+      "aliases": ["cognitive load (repo)"],
+      "preferredPhrases": ["maintainer cognitive load"]
+    },
+    {
+      "term": "bundle",
+      "kind": "docs",
+      "definition": "Bundler output for a set of modules, measured in bytes or gzip bytes.",
+      "preferredPhrases": ["bundle output"]
+    },
+    {
+      "term": "tree-shaking",
+      "kind": "docs",
+      "definition": "Bundler optimization that removes unused exports from a bundle.",
+      "preferredPhrases": ["tree-shaking"]
+    },
+    {
+      "term": "size budget",
+      "kind": "docs",
+      "definition": "A per-entrypoint gzip byte limit used to prevent regressions.",
+      "preferredPhrases": ["entrypoint size budget"]
+    },
+    {
+      "term": "containment",
+      "kind": "docs",
+      "definition": "Overlap ratio of fingerprints from one document contained in another.",
+      "preferredPhrases": ["containment ratio"]
+    },
+    {
+      "term": "jaccard",
+      "kind": "docs",
+      "definition": "Jaccard similarity over fingerprint sets: intersection divided by union.",
+      "preferredPhrases": ["Jaccard similarity"]
+    },
+    {
+      "term": "overlapCount",
+      "kind": "docs",
+      "definition": "Count of matching fingerprints between two documents.",
+      "preferredPhrases": ["fingerprint overlap count"]
+    },
+    {
+      "term": "ToolSpec",
+      "kind": "protocol",
+      "definition": "A JSON contract for tool input/output schemas, independent of any runtime.",
+      "preferredPhrases": ["ToolSpec registry"]
+    },
+    {
+      "term": "interop case",
+      "kind": "protocol",
+      "definition": "A deterministic input/output fixture used for cross-runtime verification.",
+      "preferredPhrases": ["interop fixture"]
+    },
+    {
+      "term": "I-JSON safe",
+      "kind": "protocol",
+      "definition": "JSON content without non-characters, lone surrogates, or non-finite numbers.",
+      "preferredPhrases": ["I-JSON safe"]
+    },
+    {
+      "term": "JCS",
+      "kind": "protocol",
+      "definition": "JSON Canonicalization Scheme (RFC 8785) used for deterministic hashing.",
+      "preferredPhrases": ["JCS canonical JSON"]
+    },
+    {
+      "term": "IDNA",
+      "kind": "protocol",
+      "definition": "Internationalized Domain Names in Applications processing; in this repo, UTS #46.",
+      "preferredPhrases": ["UTS #46 IDNA"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "UTS #46",
+      "kind": "protocol",
+      "definition": "Unicode Technical Standard #46, the compatibility processing for IDNA.",
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "label",
+      "kind": "protocol",
+      "definition": "A single dot-separated component of a domain name.",
+      "preferredPhrases": ["domain label"]
+    },
+    {
+      "term": "domain",
+      "kind": "protocol",
+      "definition": "A sequence of labels separated by dot equivalents under UTS #46.",
+      "preferredPhrases": ["domain name"]
+    },
+    {
+      "term": "A-label",
+      "kind": "protocol",
+      "definition": "An ASCII label with the ACE prefix (xn--), produced by Punycode.",
+      "preferredPhrases": ["A-label (ACE)"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "U-label",
+      "kind": "protocol",
+      "definition": "A Unicode label after IDNA processing (non-ASCII form).",
+      "preferredPhrases": ["U-label"],
+      "anchoredBy": ["unicode-glossary"]
+    },
+    {
+      "term": "entropy (repo)",
+      "kind": "repo",
+      "definition": "The repository entropy tuple measured by `entropy-report.v1.json`: totalTrackedFiles, totalMarkdownFiles, totalNpmScripts, totalEntrypoints, totalJsrExports, totalSrcModules, totalToolScripts, totalSchemas, totalInteropCases, totalGeneratedTables.",
+      "preferredPhrases": ["entropy metrics", "entropy tuple"]
+    },
+    {
+      "term": "internal complexity",
+      "kind": "repo",
+      "definition": "Implementation and tooling complexity (tools, internal docs, schemas) that is not part of the public API surface.",
+      "nonDefinition": ["surface area"]
+    },
+    {
+      "term": "aggregation",
+      "kind": "docs",
+      "definition": "Collecting or bundling without reducing the number of artifacts or entrypoints; may increase surface area.",
+      "nonDefinition": ["consolidation"]
+    },
+    {
+      "term": "character (unqualified)",
+      "kind": "docs",
+      "definition": "Ambiguous term; in this repo you must qualify as code point, grapheme cluster, or UTF-16 code unit.",
+      "discouragedPhrases": ["character", "characters"],
+      "preferredPhrases": ["code point", "grapheme cluster", "UTF-16 code unit"],
+      "anchoredBy": ["w3c-characters", "unicode-glossary"]
+    },
+    {
+      "term": "word (unqualified)",
+      "kind": "docs",
+      "definition": "Ambiguous term; use UAX #29 word boundary token unless you explicitly mean a lexical word.",
+      "discouragedPhrases": ["word", "words"],
+      "preferredPhrases": ["word boundary token (UAX #29)"]
+    },
+    {
+      "term": "canonical (unqualified)",
+      "kind": "docs",
+      "definition": "Ambiguous term; specify JCS canonicalization or Unicode normalization explicitly.",
+      "discouragedPhrases": ["canonical", "canonically"],
+      "preferredPhrases": ["JCS canonicalization", "Unicode normalization"]
+    },
+    {
+      "term": "safe (unqualified)",
+      "kind": "security",
+      "definition": "Ambiguous term; this repo does not label text as safe or unsafe.",
+      "discouragedPhrases": ["safe", "unsafe"],
+      "preferredPhrases": ["I-JSON safe", "well-formed"]
+    },
+    {
+      "term": "valid (unqualified)",
+      "kind": "docs",
+      "definition": "Ambiguous term; specify the exact rule such as well-formed, conformance, or schema validation.",
+      "discouragedPhrases": ["valid", "invalid"],
+      "preferredPhrases": ["well-formed", "schema-valid", "conformant"]
+    }
+  ]
+}

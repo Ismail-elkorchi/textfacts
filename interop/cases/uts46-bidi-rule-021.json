@@ -1,0 +1,14 @@
+{
+  "id": "uts46-bidi-rule-021",
+  "op": "uts46ToUnicode",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "aא"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:dc5ed96d9c5ea934109bfc61800f3823db5f1c277cc3ff237be02f9fdeba46c9"
+  }
+}

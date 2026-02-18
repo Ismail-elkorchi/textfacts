@@ -1,0 +1,14 @@
+{
+  "id": "uts46-dot-equivalent-019",
+  "op": "uts46ToUnicode",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "example。com"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:2c09b51bd320f3577f391fb16bfdfcf7b15b6671d2b00d16cd26e121e215bee2"
+  }
+}

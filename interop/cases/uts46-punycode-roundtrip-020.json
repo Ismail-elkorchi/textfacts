@@ -1,0 +1,14 @@
+{
+  "id": "uts46-punycode-roundtrip-020",
+  "op": "uts46ToUnicode",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "xn--bcher-kva.de"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:00c46d1ae49eb7c477336ab02325b364e92751eff5c1914a6746c2e77bfe3e52"
+  }
+}

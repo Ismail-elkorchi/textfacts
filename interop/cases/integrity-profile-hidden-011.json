@@ -1,0 +1,14 @@
+{
+  "id": "integrity-profile-hidden-011",
+  "op": "integrityProfile",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "utf16le-base64",
+      "base64": "QQANIGAgLiAP/tD9QgA="
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:2017c5fecae79a0c4ee8aa461a89c40d6bf7d7b473fa0a57063252b0c69d4651"
+  }
+}

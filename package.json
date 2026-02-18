@@ -1,0 +1,134 @@
+{
+  "name": "textfacts",
+  "version": "0.1.0",
+  "description": "Deterministic, Unicode-pinned text facts. No ML, no heuristics.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/mod.d.ts",
+      "import": "./dist/mod.js"
+    },
+    "./all": {
+      "types": "./dist/src/all/mod.d.ts",
+      "import": "./dist/src/all/mod.js"
+    },
+    "./core": {
+      "types": "./dist/src/core/mod.d.ts",
+      "import": "./dist/src/core/mod.js"
+    },
+    "./segment": {
+      "types": "./dist/src/segment/mod.d.ts",
+      "import": "./dist/src/segment/mod.js"
+    },
+    "./facts": {
+      "types": "./dist/src/facts/mod.d.ts",
+      "import": "./dist/src/facts/mod.js"
+    },
+    "./normalize": {
+      "types": "./dist/src/normalize/mod.d.ts",
+      "import": "./dist/src/normalize/mod.js"
+    },
+    "./casefold": {
+      "types": "./dist/src/casefold/mod.d.ts",
+      "import": "./dist/src/casefold/mod.js"
+    },
+    "./linebreak": {
+      "types": "./dist/src/linebreak/mod.d.ts",
+      "import": "./dist/src/linebreak/mod.js"
+    },
+    "./bidi": {
+      "types": "./dist/src/bidi/mod.d.ts",
+      "import": "./dist/src/bidi/mod.js"
+    },
+    "./security": {
+      "types": "./dist/src/security/mod.d.ts",
+      "import": "./dist/src/security/mod.js"
+    },
+    "./variants": {
+      "types": "./dist/src/variants/mod.d.ts",
+      "import": "./dist/src/variants/mod.js"
+    },
+    "./hash": {
+      "types": "./dist/src/hash/mod.d.ts",
+      "import": "./dist/src/hash/mod.js"
+    },
+    "./collation": {
+      "types": "./dist/src/collation/mod.d.ts",
+      "import": "./dist/src/collation/mod.js"
+    },
+    "./compare": {
+      "types": "./dist/src/compare/mod.d.ts",
+      "import": "./dist/src/compare/mod.js"
+    },
+    "./integrity": {
+      "types": "./dist/src/integrity/mod.d.ts",
+      "import": "./dist/src/integrity/mod.js"
+    },
+    "./jcs": {
+      "types": "./dist/src/jcs/mod.d.ts",
+      "import": "./dist/src/jcs/mod.js"
+    },
+    "./protocol": {
+      "types": "./dist/src/protocol/mod.d.ts",
+      "import": "./dist/src/protocol/mod.js"
+    },
+    "./schema": {
+      "types": "./dist/src/schema/mod.d.ts",
+      "import": "./dist/src/schema/mod.js"
+    },
+    "./toolspec": {
+      "types": "./dist/src/toolspec/mod.d.ts",
+      "import": "./dist/src/toolspec/mod.js"
+    },
+    "./pack": {
+      "types": "./dist/src/pack/mod.d.ts",
+      "import": "./dist/src/pack/mod.js"
+    },
+    "./unicode": {
+      "types": "./dist/src/unicode/mod.d.ts",
+      "import": "./dist/src/unicode/mod.js"
+    },
+    "./idna": {
+      "types": "./dist/src/idna/mod.d.ts",
+      "import": "./dist/src/idna/mod.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build.mjs && node scripts/rewrite-dist-import-specifiers.mjs",
+    "build:test": "node scripts/build-test.mjs && node scripts/rewrite-test-import-specifiers.mjs",
+    "gen:unicode": "node tools/unicode/gen-tables.js && node tools/unicode/gen-normalization.js && node tools/unicode/gen-casefold.js && node tools/unicode/gen-scripts.js && node tools/unicode/gen-security.js && node tools/uca/gen-ducet.mjs",
+    "lint": "biome check src test scripts mod.ts package.json tsconfig.json tsconfig.build.json tsconfig.test.json deno.json biome.json --files-ignore-unknown=true",
+    "format": "biome format --write .",
+    "schema:validate": "node tools/schema/validate.mjs",
+    "size:report": "node tools/size/report.mjs",
+    "bench:run": "node tools/bench/run.mjs",
+    "check:pack": "npm pack --dry-run",
+    "check:publint": "publint .",
+    "check:attw": "attw --pack . --profile strict --ignore-rules no-resolution cjs-resolves-to-esm --summary",
+    "check:jsr": "deno check mod.ts && deno publish --dry-run",
+    "check:quality": "npm run check:pack && npm run check:publint && npm run check:attw && npm run check:jsr",
+    "test:node": "npm run build && npm run build:test && node --test dist-test/test/node.test.js",
+    "test:bun": "if command -v bun >/dev/null 2>&1; then bun test test/bun.test.ts; elif [ -n \"$CI\" ]; then echo 'error: bun is required in CI' >&2; exit 1; else echo 'skip: bun not installed'; fi",
+    "test:deno": "deno test --allow-read test/deno.test.ts",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "test:all": "npm run test:node && npm run test:deno && npm run test:bun && npm run test:browser"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^24.0.0",
+    "ajv": "8.18.0",
+    "esbuild": "0.27.3",
+    "publint": "0.3.17",
+    "typescript": "^5.7.3"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

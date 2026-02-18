@@ -1,0 +1,84 @@
+{
+  "$id": "https://textfacts.dev/schema/idna-result-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IdnaResultV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "value", "errors", "warnings", "provenance"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "value": { "type": "string" },
+    "errors": { "type": "array", "items": { "$ref": "#/$defs/idnaError" } },
+    "warnings": { "type": "array", "items": { "$ref": "#/$defs/idnaError" } },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startCU", "endCU"],
+      "properties": {
+        "startCU": { "type": "integer", "minimum": 0 },
+        "endCU": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "idnaError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "enum": [
+            "EMPTY_LABEL",
+            "LEADING_HYPHEN",
+            "TRAILING_HYPHEN",
+            "HYPHEN_3_4",
+            "LABEL_TOO_LONG",
+            "DOMAIN_TOO_LONG",
+            "INVALID_ACE_PREFIX",
+            "PUNYCODE_ERROR",
+            "DISALLOWED",
+            "BIDI_RULE",
+            "JOINER_RULE",
+            "STD3_DISALLOWED",
+            "DOT_EQUIVALENT",
+            "ILL_FORMED_UNICODE",
+            "NONCHARACTER",
+            "DEFAULT_IGNORABLE",
+            "CONTEXTJ",
+            "CONTEXTO",
+            "MAPPED",
+            "DEVIATION",
+            "IGNORED",
+            "UNASSIGNED"
+          ]
+        },
+        "message": { "type": "string" },
+        "span": { "$ref": "#/$defs/span" },
+        "labelIndex": { "type": "integer", "minimum": 0 },
+        "codePoint": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unicodeVersion", "algorithm", "configHash", "units"],
+      "properties": {
+        "unicodeVersion": { "type": "string" },
+        "algorithm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "spec", "revisionOrDate", "implementationId"],
+          "properties": {
+            "name": { "type": "string" },
+            "spec": { "type": "string" },
+            "revisionOrDate": { "type": "string" },
+            "implementationId": { "type": "string" }
+          }
+        },
+        "configHash": { "type": "string" },
+        "units": { "type": "object" }
+      }
+    }
+  }
+}

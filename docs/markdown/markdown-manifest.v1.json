@@ -1,0 +1,358 @@
+{
+  "v": 1,
+  "generatedAt": "2026-02-18T01:15:55Z",
+  "files": [
+    {
+      "path": ".github/pull_request_template.md",
+      "title": "Summary",
+      "kind": "meta",
+      "status": "active",
+      "entrypoint": false,
+      "orphanJustification": "GitHub pull request template.",
+      "outboundLinks": [],
+      "inboundLinks": [
+        "CONTRIBUTING.md"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "title": "AGENTS Runbook",
+      "kind": "other",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "title": "Changelog",
+      "kind": "meta",
+      "status": "active",
+      "entrypoint": false,
+      "orphanJustification": "Project-level changelog.",
+      "outboundLinks": [],
+      "inboundLinks": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "title": "Contributing",
+      "kind": "howto",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [
+        ".github/pull_request_template.md"
+      ],
+      "inboundLinks": [
+        "README.md"
+      ]
+    },
+    {
+      "path": "docs/coherence-report.md",
+      "title": "Coherence Report",
+      "kind": "explanation",
+      "status": "generated",
+      "entrypoint": false,
+      "orphanJustification": "Generated artifact.",
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/collation.md",
+      "title": "Collation (UCA + DUCET)",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/compare.md",
+      "title": "Compare: Diff + Fingerprints",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/hashing.md",
+      "title": "Hashing (Facts-Only)",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/INDEX.md",
+      "title": "Documentation Index",
+      "kind": "reference",
+      "status": "generated",
+      "entrypoint": true,
+      "orphanJustification": "Docs entrypoint generated from manifest.",
+      "outboundLinks": [
+        "INDEX.md",
+        "coherence-report.md",
+        "collation.md",
+        "compare.md",
+        "hashing.md",
+        "integrity.md",
+        "interop-suite.md",
+        "jcs.md",
+        "privacy.md",
+        "protocol.md",
+        "reference/contracts.md",
+        "reference/imports.md",
+        "reference/migration.md",
+        "schemas.md",
+        "sources-docs.md",
+        "sources-protocol-contracts.md",
+        "sources-unicode.md",
+        "terminology/GLOSSARY.md",
+        "tools.md",
+        "unicode-versioning.md"
+      ],
+      "inboundLinks": [
+        "README.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/integrity.md",
+      "title": "Unicode Integrity (Facts Only)",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/interop-suite.md",
+      "title": "Interop Suite",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/jcs.md",
+      "title": "JCS (RFC 8785) JSON Canonicalization",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/privacy.md",
+      "title": "Privacy Note: Fingerprints Are Not Anonymization",
+      "kind": "explanation",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/protocol.md",
+      "title": "Protocol: I-JSON Conformant Output",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/reference/contracts.md",
+      "title": "Contracts: Schema Registry",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [
+        "../../schemas/contradiction-register-v1.schema.json",
+        "../../schemas/docs-manifest-v1.schema.json",
+        "../../schemas/duplication-allowlist-v1.schema.json",
+        "../../schemas/duplication-report-v1.schema.json",
+        "../../schemas/glossary-v1.schema.json",
+        "../../schemas/idna-result-v1.schema.json",
+        "../../schemas/markdown-manifest-v1.schema.json",
+        "../../schemas/method-dossier-v1.schema.json",
+        "../../schemas/pack-v1.schema.json",
+        "../../schemas/purpose-map-v1.schema.json",
+        "../../schemas/repo-inventory-v1.schema.json",
+        "../../schemas/text-envelope-v1.schema.json",
+        "../../schemas/uts46-options-v1.schema.json"
+      ],
+      "inboundLinks": [
+        "docs/INDEX.md",
+        "docs/schemas.md"
+      ]
+    },
+    {
+      "path": "docs/reference/imports.md",
+      "title": "Imports And Footprint",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/reference/migration.md",
+      "title": "Migration Map (Entrypoints)",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/schemas.md",
+      "title": "Schemas",
+      "kind": "reference",
+      "status": "superseded",
+      "entrypoint": false,
+      "supersededBy": "contracts",
+      "outboundLinks": [
+        "reference/contracts.md"
+      ],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/sources-docs.md",
+      "title": "Sources: Documentation System",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/sources-protocol-contracts.md",
+      "title": "Sources: Protocol + Contracts",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/sources-unicode.md",
+      "title": "Sources: Unicode Algorithms",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/terminology/GLOSSARY.md",
+      "title": "Glossary",
+      "kind": "reference",
+      "status": "generated",
+      "entrypoint": false,
+      "orphanJustification": "Generated artifact.",
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/tools.md",
+      "title": "Repository Tooling",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/unicode-versioning.md",
+      "title": "Unicode Versioning Playbook",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "path": "README.md",
+      "title": "textfacts",
+      "kind": "meta",
+      "status": "active",
+      "entrypoint": true,
+      "orphanJustification": "Primary repository entrypoint.",
+      "outboundLinks": [
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "docs/INDEX.md"
+      ],
+      "inboundLinks": []
+    },
+    {
+      "path": "SECURITY.md",
+      "title": "Security Policy",
+      "kind": "reference",
+      "status": "active",
+      "entrypoint": false,
+      "outboundLinks": [],
+      "inboundLinks": [
+        "README.md"
+      ]
+    },
+    {
+      "path": "testdata/fuzz/README.md",
+      "title": "Fuzz Fixtures",
+      "kind": "meta",
+      "status": "active",
+      "entrypoint": false,
+      "orphanJustification": "Test data documentation.",
+      "outboundLinks": [],
+      "inboundLinks": []
+    },
+    {
+      "path": "testdata/unicode/17.0.0/README.md",
+      "title": "Unicode Test Data (17.0.0)",
+      "kind": "meta",
+      "status": "active",
+      "entrypoint": false,
+      "orphanJustification": "Test data documentation.",
+      "outboundLinks": [],
+      "inboundLinks": []
+    }
+  ]
+}

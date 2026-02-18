@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cases": [
+    "cases/pack-v1-basic-001.json",
+    "cases/pack-v1-mixed-scripts-002.json",
+    "cases/pack-v1-emoji-003.json",
+    "cases/pack-v1-bidi-004.json",
+    "cases/pack-v1-lone-surrogate-005.json",
+    "cases/envelope-roundtrip-ascii-006.json",
+    "cases/envelope-roundtrip-emoji-007.json",
+    "cases/envelope-roundtrip-lone-surrogate-008.json",
+    "cases/envelope-roundtrip-noncharacter-009.json",
+    "cases/envelope-roundtrip-code-units-010.json",
+    "cases/integrity-profile-hidden-011.json",
+    "cases/confusable-skeleton-012.json",
+    "cases/uca-sort-keys-013.json",
+    "cases/winnowing-basic-014.json",
+    "cases/winnowing-repetitive-015.json",
+    "cases/diff-basic-016.json",
+    "cases/pack-v1-sha256-023.json",
+    "cases/uca-compare-024.json",
+    "cases/uts46-ascii-basic-017.json",
+    "cases/uts46-mixed-scripts-018.json",
+    "cases/uts46-dot-equivalent-019.json",
+    "cases/uts46-punycode-roundtrip-020.json",
+    "cases/uts46-bidi-rule-021.json",
+    "cases/uts46-joiner-rule-022.json"
+  ]
+}

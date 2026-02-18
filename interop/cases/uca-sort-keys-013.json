@@ -1,0 +1,38 @@
+{
+  "id": "uca-sort-keys-013",
+  "op": "ucaSortKeyHex",
+  "input": {
+    "texts": [
+      {
+        "v": 1,
+        "kind": "string",
+        "text": "café"
+      },
+      {
+        "v": 1,
+        "kind": "string",
+        "text": "café"
+      },
+      {
+        "v": 1,
+        "kind": "string",
+        "text": "Ångström"
+      },
+      {
+        "v": 1,
+        "kind": "string",
+        "text": "ångström"
+      }
+    ],
+    "options": {
+      "strength": 3,
+      "alternate": "non-ignorable",
+      "normalization": "nfd",
+      "illFormed": "replace",
+      "includeIdenticalLevel": true
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:7a9b644b5553ab0c4c37cbaa78ca8a942cf5544f32e212c9f3c992102c0e7997"
+  }
+}

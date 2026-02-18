@@ -1,0 +1,14 @@
+{
+  "id": "envelope-roundtrip-lone-surrogate-008",
+  "op": "textEnvelopeRoundtrip",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "utf16le-base64",
+      "base64": "YQAA2GIA"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:7cb0895a87a669b0e866184f9c2fa781de63bb51c795d63fc50d9063b3ad389c"
+  }
+}

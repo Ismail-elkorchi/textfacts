@@ -1,0 +1,17 @@
+{
+  "id": "pack-v1-basic-001",
+  "op": "packTextV1",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "Hello world"
+    },
+    "opts": {
+      "includeInputText": true
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:511ac3108bc102eaf931e4b69a24e1f479ffaa67b60873065f1465191c426c2e"
+  }
+}

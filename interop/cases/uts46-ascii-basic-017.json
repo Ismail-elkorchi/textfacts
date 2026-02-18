@@ -1,0 +1,14 @@
+{
+  "id": "uts46-ascii-basic-017",
+  "op": "uts46ToAscii",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "example.com"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:1941b72ba5441cd91dabb3ba080d39116403cf6cc10ffda6863f138593bd540d"
+  }
+}

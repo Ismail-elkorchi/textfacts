@@ -1,0 +1,21 @@
+{
+  "id": "pack-v1-bidi-004",
+  "op": "packTextV1",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "ABC ‮DEF‬"
+    },
+    "opts": {
+      "includeInputText": true,
+      "sections": {
+        "integrity": true,
+        "security": true
+      }
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:07e879b2c1cfc6027482bdb428e6ebf0a2f5835c17631dcea040bce258da1ecf"
+  }
+}

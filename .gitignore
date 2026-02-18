@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+*.log
+*.tmp
+*.tsbuildinfo
+dist
+dist-test
+coverage
+/tools/unicode/ucd
+/data/ucd

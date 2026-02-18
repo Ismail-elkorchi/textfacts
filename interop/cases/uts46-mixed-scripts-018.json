@@ -1,0 +1,14 @@
+{
+  "id": "uts46-mixed-scripts-018",
+  "op": "uts46ToAscii",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "пример.δοκιμή"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:cb7ead30427851aab7696cb2887ebc5f63d645b2271ce40a3f168e83869a08e9"
+  }
+}

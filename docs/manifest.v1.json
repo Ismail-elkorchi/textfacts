@@ -1,0 +1,167 @@
+{
+  "v": 1,
+  "generatedAt": "2026-02-14T07:42:56.225Z",
+  "docs": [
+    {
+      "id": "index",
+      "path": "docs/INDEX.md",
+      "title": "Documentation Index",
+      "kind": "reference",
+      "status": "generated",
+      "summary": "Generated entrypoint for documentation grouped by doc kind."
+    },
+    {
+      "id": "coherence-report",
+      "path": "docs/coherence-report.md",
+      "title": "Coherence Report",
+      "kind": "explanation",
+      "status": "generated",
+      "summary": "Generated summary of repo coherence audit checks."
+    },
+    {
+      "id": "collation",
+      "path": "docs/collation.md",
+      "title": "Collation (UCA + DUCET)",
+      "kind": "reference",
+      "status": "active",
+      "summary": "UCA/DUCET collation behavior and invariants."
+    },
+    {
+      "id": "compare",
+      "path": "docs/compare.md",
+      "title": "Compare: Diff + Fingerprints",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Deterministic diffing, fingerprints, and resemblance metrics."
+    },
+    {
+      "id": "hashing",
+      "path": "docs/hashing.md",
+      "title": "Hashing (Facts-Only)",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Hash primitives, encodings, and determinism constraints."
+    },
+    {
+      "id": "integrity",
+      "path": "docs/integrity.md",
+      "title": "Unicode Integrity (Facts Only)",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Well-formedness and integrity scanning rules."
+    },
+    {
+      "id": "interop-suite",
+      "path": "docs/interop-suite.md",
+      "title": "Interop Suite",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Interop suite structure, goals, and verification expectations."
+    },
+    {
+      "id": "jcs",
+      "path": "docs/jcs.md",
+      "title": "JCS (RFC 8785) JSON Canonicalization",
+      "kind": "reference",
+      "status": "active",
+      "summary": "JCS canonicalization usage and I-JSON constraints."
+    },
+    {
+      "id": "privacy",
+      "path": "docs/privacy.md",
+      "title": "Privacy Note: Fingerprints Are Not Anonymization",
+      "kind": "explanation",
+      "status": "active",
+      "summary": "Privacy boundaries for fingerprints and resemblance metrics."
+    },
+    {
+      "id": "protocol",
+      "path": "docs/protocol.md",
+      "title": "Protocol: I-JSON Conformant Output",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Protocol-level output contracts and I-JSON guarantees."
+    },
+    {
+      "id": "contracts",
+      "path": "docs/reference/contracts.md",
+      "title": "Contracts: Schema Registry",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Canonical schema registry and usage map."
+    },
+    {
+      "id": "imports",
+      "path": "docs/reference/imports.md",
+      "title": "Imports And Footprint",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Import guidance for footprint discipline and entrypoint selection."
+    },
+    {
+      "id": "migration",
+      "path": "docs/reference/migration.md",
+      "title": "Migration Map (Entrypoint Consolidation)",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Import mappings after entrypoint consolidation."
+    },
+    {
+      "id": "schemas",
+      "path": "docs/schemas.md",
+      "title": "Schemas",
+      "kind": "reference",
+      "status": "superseded",
+      "supersededBy": "contracts",
+      "summary": "Superseded pointer to the canonical schema registry."
+    },
+    {
+      "id": "sources-docs",
+      "path": "docs/sources-docs.md",
+      "title": "Sources: Documentation System",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Sources for doc IA, terminology, duplication, and footprint discipline."
+    },
+    {
+      "id": "sources-protocol-contracts",
+      "path": "docs/sources-protocol-contracts.md",
+      "title": "Sources: Protocol + Contracts",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Sources for protocol, schemas, ToolSpec, and interop."
+    },
+    {
+      "id": "sources-unicode",
+      "path": "docs/sources-unicode.md",
+      "title": "Sources: Unicode Algorithms",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Spec and data sources for IDNA and collation."
+    },
+    {
+      "id": "glossary",
+      "path": "docs/terminology/GLOSSARY.md",
+      "title": "Glossary",
+      "kind": "reference",
+      "status": "generated",
+      "summary": "Generated glossary from the terminology contract."
+    },
+    {
+      "id": "tools-reference",
+      "path": "docs/tools.md",
+      "title": "Repository Tooling",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Reference map of repo tooling scripts and their roles."
+    },
+    {
+      "id": "unicode-versioning",
+      "path": "docs/unicode-versioning.md",
+      "title": "Unicode Versioning Playbook",
+      "kind": "reference",
+      "status": "active",
+      "summary": "Unicode update policy, pinning, and version guardrails."
+    }
+  ]
+}

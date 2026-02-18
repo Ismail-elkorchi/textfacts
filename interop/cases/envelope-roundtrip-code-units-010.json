@@ -1,0 +1,14 @@
+{
+  "id": "envelope-roundtrip-code-units-010",
+  "op": "textEnvelopeRoundtrip",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "utf16-code-units",
+      "codeUnits": [65, 55296, 66]
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:0672dafa41873a7b9c74b0665f3176616fdd413b44c499e293eb68cbfe3fa506"
+  }
+}

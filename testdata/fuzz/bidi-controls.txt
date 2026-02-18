@@ -1,0 +1,3 @@
+LTRRLORTLPDF (escaped)
+A \u202E B \u202C C
+abc \u2066 def \u2069 ghi
