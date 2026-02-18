@@ -494,14 +494,12 @@ function checkContextO(label: string, labelIndex: number, errors: IdnaError[]): 
   const cps = collectCodePoints(label);
   if (cps.length === 0) return;
 
-  let hasKatakanaMiddleDot = false;
   let hasHiraganaKatakanaHan = false;
   let hasArabicIndic = false;
   let hasExtArabicIndic = false;
 
   for (const info of cps) {
     if (!info) continue;
-    if (info.cp === 0x30fb) hasKatakanaMiddleDot = true;
     if (info.cp >= 0x0660 && info.cp <= 0x0669) hasArabicIndic = true;
     if (info.cp >= 0x06f0 && info.cp <= 0x06f9) hasExtArabicIndic = true;
     const script = scriptIdAt(info.cp);

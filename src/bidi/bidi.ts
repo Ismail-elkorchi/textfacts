@@ -51,16 +51,6 @@ function isIsolateInitiator(cls: BidiClass): boolean {
   return cls === BidiClass.LRI || cls === BidiClass.RLI || cls === BidiClass.FSI;
 }
 
-function isExplicitFormat(cls: BidiClass): boolean {
-  return (
-    cls === BidiClass.LRE ||
-    cls === BidiClass.RLE ||
-    cls === BidiClass.LRO ||
-    cls === BidiClass.RLO ||
-    cls === BidiClass.PDF
-  );
-}
-
 function isNeutralOrIsolate(cls: BidiClass): boolean {
   return (
     cls === BidiClass.B ||
@@ -76,10 +66,6 @@ function isNeutralOrIsolate(cls: BidiClass): boolean {
 
 function isBidiControlCodePoint(codePoint: number): boolean {
   return BIDI_CONTROLS.has(codePoint);
-}
-
-function isStrongType(cls: BidiClass): boolean {
-  return cls === BidiClass.L || cls === BidiClass.R || cls === BidiClass.AL;
 }
 
 function directionFromLevel(level: number): BidiClass.L | BidiClass.R {

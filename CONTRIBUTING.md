@@ -57,6 +57,13 @@ npm run lint
 npm run format
 ```
 
+**Static checks**
+```sh
+npm run check:static
+```
+
+Runs TypeScript static gates for shipped source (`noUnusedLocals` + `noUnusedParameters`) without emitting artifacts.
+
 **Updating Unicode tables**
 ```sh
 npm run gen:unicode

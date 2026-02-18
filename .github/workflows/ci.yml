@@ -60,6 +60,9 @@ jobs:
       - name: Schema Validate
         run: npm run schema:validate
 
+      - name: Static Check
+        run: npm run check:static
+
       - name: Test All
         run: npm run test:all
 
