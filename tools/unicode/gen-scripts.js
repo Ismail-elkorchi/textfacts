@@ -2,10 +2,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const UNICODE_VERSION = "17.0.0";
-const UCD_BASE = `https://www.unicode.org/Public/${UNICODE_VERSION}/ucd/`;
 
 const ROOT = process.cwd();
-const CACHE_DIR = path.join(ROOT, "tools", "unicode", "ucd", UNICODE_VERSION);
+const SOURCE_DIR = path.join(ROOT, "specs", "unicode", UNICODE_VERSION, "ucd");
 const OUT_DIR = path.join(ROOT, "src", "unicode", "generated");
 
 const FILES = {
@@ -14,25 +13,21 @@ const FILES = {
   propertyValueAliases: "PropertyValueAliases.txt",
 };
 
+function normalizePath(filePath) {
+  return filePath.split(path.sep).join("/");
+}
+
 async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
 }
 
-async function fetchFile(fileName) {
-  await ensureDir(CACHE_DIR);
-  const cachePath = path.join(CACHE_DIR, fileName);
+async function readSourceFile(fileName) {
+  const sourcePath = path.join(SOURCE_DIR, fileName);
   try {
-    return await fs.readFile(cachePath, "utf8");
-  } catch {
-    const url = `${UCD_BASE}${fileName}`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${url}: ${response.status}`);
-    }
-    const text = await response.text();
-    await ensureDir(path.dirname(cachePath));
-    await fs.writeFile(cachePath, text, "utf8");
-    return text;
+    return await fs.readFile(sourcePath, "utf8");
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Missing Unicode source file: ${normalizePath(sourcePath)} (${message})`);
   }
 }
 
@@ -156,8 +151,8 @@ function generateScriptTable(scriptNames, scriptRanges, extRanges, extSets) {
 }
 
 async function main() {
-  const scriptsText = await fetchFile(FILES.scripts);
-  const aliasText = await fetchFile(FILES.propertyValueAliases);
+  const scriptsText = await readSourceFile(FILES.scripts);
+  const aliasText = await readSourceFile(FILES.propertyValueAliases);
   const aliasMap = parseScriptAliases(aliasText);
   const { ranges, names } = parseScriptRanges(scriptsText);
   const { list, ids } = buildScriptIds(names);
@@ -167,7 +162,7 @@ async function main() {
       .filter((range) => range[2] !== 0),
   );
 
-  const scriptExtText = await fetchFile(FILES.scriptExtensions);
+  const scriptExtText = await readSourceFile(FILES.scriptExtensions);
   const { ranges: extRanges, sets: extSets } = parseScriptExtensions(scriptExtText, ids, aliasMap);
 
   await ensureDir(OUT_DIR);

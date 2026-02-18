@@ -11,6 +11,16 @@ function normalizePath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
+async function openRegularFile(filePath) {
+  const handle = await fs.open(filePath, "r");
+  const stat = await handle.stat();
+  if (!stat.isFile()) {
+    await handle.close();
+    return null;
+  }
+  return handle;
+}
+
 async function collectMarkdownDocPathsRecursive(dirPath, markdownDocPathAccumulator) {
   const entries = await fs.readdir(dirPath, { withFileTypes: true });
   for (const entry of entries) {
@@ -152,31 +162,35 @@ async function main() {
       }
       const normalizedTarget = normalizePath(target);
 
-      let stat;
+      let fileHandle;
       try {
-        stat = await fs.stat(target);
+        fileHandle = await openRegularFile(target);
       } catch {
         brokenLinks += 1;
         issues.push(`Broken link in ${relPath}: ${dest}`);
         continue;
       }
-      if (stat.isDirectory()) {
+      if (!fileHandle) {
         brokenLinks += 1;
         issues.push(`Link to directory in ${relPath}: ${dest}`);
         continue;
       }
 
-      if (fragment && (normalizedTarget === normalizePath(INDEX_PATH) || fragmentCheck)) {
-        let anchors = anchorCache.get(normalizedTarget);
-        if (!anchors) {
-          const targetText = await fs.readFile(target, "utf8");
-          anchors = collectAnchors(targetText);
-          anchorCache.set(normalizedTarget, anchors);
+      try {
+        if (fragment && (normalizedTarget === normalizePath(INDEX_PATH) || fragmentCheck)) {
+          let anchors = anchorCache.get(normalizedTarget);
+          if (!anchors) {
+            const targetText = await fileHandle.readFile("utf8");
+            anchors = collectAnchors(targetText);
+            anchorCache.set(normalizedTarget, anchors);
+          }
+          if (!anchors.has(fragment)) {
+            badFragments += 1;
+            issues.push(`Bad fragment in ${relPath}: ${dest}`);
+          }
         }
-        if (!anchors.has(fragment)) {
-          badFragments += 1;
-          issues.push(`Bad fragment in ${relPath}: ${dest}`);
-        }
+      } finally {
+        await fileHandle.close();
       }
     }
   }

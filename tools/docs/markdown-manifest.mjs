@@ -17,6 +17,16 @@ function normalizePath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
+async function openRegularFile(filePath) {
+  const handle = await fs.open(filePath, "r");
+  const stat = await handle.stat();
+  if (!stat.isFile()) {
+    await handle.close();
+    return null;
+  }
+  return handle;
+}
+
 async function collectMarkdownPathsRecursive(dirPath, markdownPathAccumulator) {
   const entries = await fs.readdir(dirPath, { withFileTypes: true });
   for (const entry of entries) {
@@ -130,40 +140,44 @@ async function runAudit(manifest) {
       );
       const relTarget = normalizePath(path.relative(ROOT, resolved));
 
-      let stat;
+      let fileHandle;
       try {
-        stat = await fs.stat(resolved);
+        fileHandle = await openRegularFile(resolved);
       } catch {
         brokenLinks += 1;
         issues.push(`Broken link in ${entry.path}: ${dest}`);
         continue;
       }
-      if (stat.isDirectory()) {
+      if (!fileHandle) {
         brokenLinks += 1;
         issues.push(`Link to directory in ${entry.path}: ${dest}`);
         continue;
       }
 
-      if (!inboundMap.has(relTarget)) inboundMap.set(relTarget, new Set());
-      inboundMap.get(relTarget).add(entry.path);
+      try {
+        if (!inboundMap.has(relTarget)) inboundMap.set(relTarget, new Set());
+        inboundMap.get(relTarget).add(entry.path);
 
-      const targetPath = normalizePath(resolved);
-      const needsFragmentCheck =
-        targetPath === README_PATH ||
-        targetPath === INDEX_PATH ||
-        entryByPath.get(relTarget)?.fragmentCheck === true;
+        const targetPath = normalizePath(resolved);
+        const needsFragmentCheck =
+          targetPath === README_PATH ||
+          targetPath === INDEX_PATH ||
+          entryByPath.get(relTarget)?.fragmentCheck === true;
 
-      if (fragment && needsFragmentCheck) {
-        let anchors = anchorCache.get(targetPath);
-        if (!anchors) {
-          const targetText = await fs.readFile(resolved, "utf8");
-          anchors = collectAnchors(targetText);
-          anchorCache.set(targetPath, anchors);
+        if (fragment && needsFragmentCheck) {
+          let anchors = anchorCache.get(targetPath);
+          if (!anchors) {
+            const targetText = await fileHandle.readFile("utf8");
+            anchors = collectAnchors(targetText);
+            anchorCache.set(targetPath, anchors);
+          }
+          if (!anchors.has(fragment)) {
+            badFragments += 1;
+            issues.push(`Bad fragment in ${entry.path}: ${dest}`);
+          }
         }
-        if (!anchors.has(fragment)) {
-          badFragments += 1;
-          issues.push(`Bad fragment in ${entry.path}: ${dest}`);
-        }
+      } finally {
+        await fileHandle.close();
       }
     }
   }

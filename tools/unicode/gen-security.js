@@ -5,6 +5,7 @@ const UNICODE_VERSION = "17.0.0";
 const SECURITY_BASE = `https://www.unicode.org/Public/${UNICODE_VERSION}/security/`;
 
 const ROOT = process.cwd();
+const SPEC_DIR = path.join(ROOT, "specs", "unicode", UNICODE_VERSION, "security");
 const CACHE_DIR = path.join(ROOT, "tools", "unicode", "ucd", UNICODE_VERSION, "security");
 const OUT_DIR = path.join(ROOT, "src", "security", "generated");
 
@@ -34,7 +35,11 @@ async function ensureDir(dir) {
 }
 
 async function fetchFile(fileName) {
-  await ensureDir(CACHE_DIR);
+  const specPath = path.join(SPEC_DIR, fileName);
+  try {
+    return await fs.readFile(specPath, "utf8");
+  } catch {}
+
   const cachePath = path.join(CACHE_DIR, fileName);
   try {
     return await fs.readFile(cachePath, "utf8");
@@ -44,10 +49,7 @@ async function fetchFile(fileName) {
     if (!response.ok) {
       throw new Error(`Failed to fetch ${url}: ${response.status}`);
     }
-    const text = await response.text();
-    await ensureDir(path.dirname(cachePath));
-    await fs.writeFile(cachePath, text, "utf8");
-    return text;
+    return await response.text();
   }
 }
 
