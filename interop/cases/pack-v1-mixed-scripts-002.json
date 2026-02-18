@@ -1,0 +1,25 @@
+{
+  "id": "pack-v1-mixed-scripts-002",
+  "op": "packTextV1",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "Alpha Αlpha Аlpha"
+    },
+    "opts": {
+      "includeInputText": true,
+      "sections": {
+        "security": true,
+        "variants": true,
+        "unicode": true,
+        "segment": true
+      },
+      "maxExamples": 3,
+      "topK": 10
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:991e35c96a6b7d19c0bc6b0415b831cf628a1fbb1dac5a9806abded3de3f531d"
+  }
+}

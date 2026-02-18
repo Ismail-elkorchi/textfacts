@@ -1,0 +1,14 @@
+{
+  "id": "envelope-roundtrip-ascii-006",
+  "op": "textEnvelopeRoundtrip",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "Plain ASCII"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:d96654ecfd08102b9ad4b99f3ab3ebe80365a4f9951059b6d35f028a305df604"
+  }
+}

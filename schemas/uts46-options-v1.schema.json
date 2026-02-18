@@ -1,0 +1,17 @@
+{
+  "$id": "https://textfacts.dev/schema/uts46-options-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Uts46OptionsV1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "useStd3AsciiRules": { "type": "boolean" },
+    "useCompatMapping": { "type": "boolean" },
+    "checkHyphens": { "type": "boolean" },
+    "checkBidi": { "type": "boolean" },
+    "checkJoiners": { "type": "boolean" },
+    "verifyDnsLength": { "type": "boolean" },
+    "illFormed": { "enum": ["error", "replace"] },
+    "splitOnDots": { "enum": ["ascii-only", "uts46"] }
+  }
+}

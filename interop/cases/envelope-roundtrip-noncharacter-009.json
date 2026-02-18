@@ -1,0 +1,14 @@
+{
+  "id": "envelope-roundtrip-noncharacter-009",
+  "op": "textEnvelopeRoundtrip",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "utf16le-base64",
+      "base64": "0P0="
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:ff156933483b514239302dfcc75ddcd98007a95ddddd31dcd54ac358d6c7800d"
+  }
+}

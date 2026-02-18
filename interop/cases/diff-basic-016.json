@@ -1,0 +1,24 @@
+{
+  "id": "diff-basic-016",
+  "op": "diffText",
+  "input": {
+    "a": {
+      "v": 1,
+      "kind": "string",
+      "text": "Alpha beta gamma"
+    },
+    "b": {
+      "v": 1,
+      "kind": "string",
+      "text": "Alpha gamma delta"
+    },
+    "options": {
+      "tokenizer": "uax29-word",
+      "canonicalKey": "raw",
+      "prefer": "delete"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:8d4d4e75928206166b92ab6b018796ca162c360fcd0e18910730f2b8b35db680"
+  }
+}

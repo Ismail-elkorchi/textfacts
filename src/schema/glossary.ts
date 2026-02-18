@@ -1,0 +1,78 @@
+/**
+ * GLOSSARY_V1_SCHEMA is an exported constant used by public APIs.
+ */
+export const GLOSSARY_V1_SCHEMA: Record<string, unknown> = {
+  $id: "https://textfacts.dev/schema/glossary-v1.json",
+  $schema: "https://json-schema.org/draft/2020-12/schema",
+  title: "GlossaryV1",
+  type: "object",
+  additionalProperties: false,
+  required: ["v", "generatedAt", "anchors", "terms"],
+  properties: {
+    v: { const: 1 },
+    generatedAt: { type: "string", minLength: 1 },
+    anchors: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["id", "specPath"],
+        properties: {
+          id: { type: "string", minLength: 1 },
+          specPath: { type: "string", minLength: 1 },
+        },
+      },
+    },
+    terms: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["term", "kind", "definition"],
+        properties: {
+          term: { type: "string", minLength: 1 },
+          kind: {
+            enum: ["unicode", "nlp", "governance", "docs", "security", "protocol"],
+          },
+          definition: { type: "string", minLength: 1 },
+          nonDefinition: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+          preferredPhrases: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+          discouragedPhrases: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+          aliases: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+          units: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+          examples: {
+            type: "array",
+            items: {
+              type: "object",
+              additionalProperties: false,
+              required: ["good"],
+              properties: {
+                good: { type: "string", minLength: 1 },
+                bad: { type: "string", minLength: 1 },
+              },
+            },
+          },
+          anchoredBy: {
+            type: "array",
+            items: { type: "string", minLength: 1 },
+          },
+        },
+      },
+    },
+  },
+};

@@ -1,0 +1,864 @@
+Unicode 17.0.0
+
+ Tech Site
+ | Site Map |
+ Search
+
+Unicode® 17.0.0
+
+2025 September 9 (Announcement)
+
+STATUS: This is a preliminary draft page for an upcoming release. Some details may be missing or incorrect, and some links may be wrong or broken. During the alpha review period, errors are expected and feedback is not necessary. During the beta review period, feedback about errors on this page will be helpful and appreciated.
+
+This page summarizes the important changes for the Unicode Standard, Version 17.0.0.
+ This version supersedes all previous versions of the Unicode Standard.
+
+- A. Summary
+
+- B. Technical Overview
+
+- Core Specification
+
+- Code Charts
+
+- Han Radical-Stroke Indices
+
+- Unicode Standard Annexes
+
+- Unicode Character Database
+
+- Version References
+
+- Errata
+
+- C. Stability Policy Update
+
+- D. Textual Changes and Character Additions
+
+- E. Conformance Changes
+
+- F. Changes in the Unicode Character Database
+
+- G. Changes in the Unicode Standard Annexes
+
+- H. Changes in Synchronized Unicode Technical Standards
+
+- I. List of Components
+
+- M. Implications for Migration
+
+A. Summary
+
+Unicode 17.0 adds 4803 characters,
+ for a total of 159,801 characters.
+ The new additions include 4 new scripts:
+
+- Sidetic
+
+- Tolong Siki
+
+- Beria Erfe
+
+- Tai Yo
+
+New Data Files for Unicode 17.0
+
+- No new data files have been added to the UCD for Version 17.0.
+
+Synchronization
+
+Several other important Unicode specifications have been updated for Version 17.0.
+ The following four Unicode Technical Standards are versioned in
+ synchrony with the Unicode Standard, because their data files cover the same repertoire.
+ All have been updated to Version 17.0:
+
+Specification
+
+Scope
+
+Data Files
+
+UTS #10, Unicode Collation Algorithm
+
+Sorting Unicode text
+
+UCA data
+
+UTS #39, Unicode Security Mechanisms
+
+Reducing Unicode spoofing
+
+Security data
+
+UTS #46, Unicode IDNA Compatibility Processing
+
+Compatible processing of non-ASCII URLs
+
+IDNA data
+
+ IDNA 2008 derived data
+
+UTS #51, Unicode Emoji
+
+Emoji and their behavior
+
+Emoji data
+
+Some of the changes in Version 17.0 and associated Unicode Technical Standards
+ may require modifications
+ to implementations. For more information, see the migration and modification sections of
+ UTS #10, UTS #39, UTS #46, and UTS #51.
+
+See Sections D through H below for additional details regarding the changes in this version of
+ the Unicode Standard, its associated annexes, and the other synchronized Unicode specifications.
+
+See the following resource links for general information about Unicode versions
+and other information about the Unicode Standard and other publications
+of the Unicode Consortium.
+
+-
+ Archive of Unicode Versions
+
+-
+ About Versions
+
+-
+ Glossary of Unicode Terms
+
+-
+ References for the Unicode Standard
+
+- Unicode Acknowledgements
+
+-
+ Technical Reports
+
+-
+ Unicode Emoji
+
+B. Technical Overview
+
+Version 17.0 of the Unicode Standard consists of:
+
+- The core specification
+
+- The code charts (delta and archival) for this version
+
+- The Unicode Standard Annexes
+
+- The Unicode Character Database (UCD)
+
+The core specification gives the general principles,
+ requirements for conformance, and guidelines for implementers. The
+ code charts show representative glyphs for all the Unicode
+ characters. The Unicode Standard Annexes supply detailed normative
+ information about particular aspects of the standard. The Unicode
+ Character Database supplies normative and informative data for
+ implementers to allow them to implement the Unicode Standard.
+
+Core Specification
+
+The core specification for Version 17.0 is available for browsing online
+ as per-chapter web pages. Because the full table of contents for the core specification is provided,
+ with interactive links, no separate bookmarks page is provided for this release,
+ nor are separate chapter links provided directly in this summary page
+ for the Unicode Standard.
+ Anchors for chapters, sections, tables, and figures in the core specification are
+ shown with the convention of a "#" in the left margin of the heading or caption.
+ Those anchors can be clicked on to provide custom bookmarks to any particular
+ portion of the text, down to the level of subsections. Numbering of sections extends down to the subsection level, as well, to provide better referenceabiity
+ of precise content.
+
+The HTML version of the core specification is authoritative. However, for
+ convenience of reference, an archival
+ version of core specification is also available as
+ a single pdf. (13 MB)
+
+Code Charts
+
+Several sets of code charts are available. They serve different
+ purposes:
+
+Chart Type
+
+Description
+
+Latest Code Charts
+
+These charts are always the most current published
+ code charts available, and may be updated at any time. The charts are organized by
+ scripts and blocks for easy reference.
+ An online index by character name
+ is also provided.
+
+Delta Code Charts
+
+These charts show the
+ new blocks and any blocks in which characters were added
+ specifically for Unicode 17.0.0. The new characters and any major updates to the
+ representative glyphs are visually highlighted in these charts.
+
+Archival Code Charts
+
+These charts contain
+ the entire set of characters, names and representative glyphs at the time of publication of Unicode 17.0.0.
+
+The delta and archival code charts are a stable part of this release of the Unicode Standard. They will never be updated.
+
+Han Radical-Stroke Indices
+
+There are a number of radical-stroke indices available to assist in
+ the lookup of Han ideographs in the code charts.
+
+Index Type
+
+Description
+
+Interactive
+
+An interactive CJK character lookup page that supports lookup
+ either by code point or by radical and stroke values.
+
+IICore (4.1 MB)
+
+A static radical-stroke index PDF file limited to only the
+ IICore repertoire. (This RS index is seldom updated.)
+
+Unihan Core 2020 (8.9 MB)
+
+A static radical-stroke index PDF file limited to only the
+ Unihan
+ Core 2020 repertoire. (This RS index is seldom updated.)
+
+Complete (48 MB)
+
+A static radical-stroke index PDF file that covers the entire
+ CJK ideograph repertoire for Unicode 17.0.
+
+Complete
+
+A static data file that corresponds to the complete radical-stroke index for Unicode 17.0.
+
+The complete radical-stroke index is a stable part of this release of the Unicode Standard. It will never be updated.
+
+Unicode Standard Annexes
+
+STATUS: During the alpha review and beta review periods,
+links to individual UAXes (or UTSes) point to the proposed update for that document, if any.
+If no proposed update has been posted for the document, links point to the last published
+version of the document, for reference.
+
+Links to the individual Unicode Standard Annexes for this
+ version are available in
+ Section I, List of Components below. The summary list of significant changes
+ in the content of each Unicode Standard Annex for Version 17.0 can be found
+ in Section G, Changes in the Unicode Standard Annexes below.
+
+Unicode Character Database
+
+STATUS: During the beta review period, the draft of UCD data includes data for the complete, planned character repertoire of Unicode 17.0, including all data changes approved by UTC for version 17.0.
+
+Data files
+ for Version 17.0 of
+ the Unicode Character Database are available. The ReadMe.txt in that directory provides a roadmap
+ to the functions of the various subdirectories.
+ Detailed documentation about the data files can be found in
+ UAX #44, Unicode Character Database.
+
+Version References
+
+Version 17.0.0 of the Unicode Standard
+ should be referenced as:
+
+The Unicode Consortium. The Unicode Standard, Version 17.0.0, (South San Francisco: The Unicode Consortium,
+ 2025. ISBN 978-1-936213-35-1)
+
+ https://www.unicode.org/versions/Unicode17.0.0/
+
+The terms “Version 17.0” or “Unicode 17.0” are abbreviations for the full version reference, Version 17.0.0.
+
+The citation and permalink for the latest published version of the Unicode Standard is:
+
+The Unicode Consortium. The Unicode Standard.
+
+ https://www.unicode.org/versions/latest/
+
+A complete specification of the contributory files for Unicode
+ 17.0 is found below in Section I, List of Components.
+ For examples of how to cite particular portions of the Unicode Standard, see also the Reference Examples.
+
+Errata
+
+Errata incorporated into Unicode 17.0 are listed by date in
+ a separate table. For corrigenda and errata after the release of Unicode 17.0, see the list of current
+ Updates and Errata.
+
+C. Stability Policy Update
+
+No significant updates to the Character Encoding Stability Policies have occurred in the interval since the last release of the Unicode Standard.
+
+D. Textual Changes and Character Additions
+
+ Changes in the Unicode Standard Annexes are listed in Section G.
+
+Character Assignment Overview
+
+4803 characters have been added.
+ Most character additions are in new blocks, but there are also character additions to a number of existing blocks. For details, see the delta code charts.
+
+New Blocks
+
+The following blocks are newly defined in Version 17.0:
+
+Range
+
+Block Name
+
+10940..1095F
+
+Sidetic
+
+11B60..11B7F
+
+Sharada Supplement
+
+11DB0..11DEF
+
+Tolong Siki
+
+16EA0..16EDF
+
+Beria Erfe
+
+18D80..18DFF
+
+Tangut Components Supplement
+
+1CEC0..1CEFF
+
+Miscellaneous Symbols Supplement
+
+1E6C0..1E6FF
+
+Tai Yo
+
+323B0..3347F
+
+CJK Unified Ideographs Extension J
+
+E. Conformance Changes
+
+There are no new conformance requirements for the core specification in Unicode 17.0.
+
+F. Changes in the Unicode Character Database
+
+The detailed listing of all changes to the contributory data files of the Unicode Character Database
+ for Version 17.0 can be found in
+ UAX #44, Unicode Character Database.
+ The changes listed there include character additions and property revisions to existing characters that will affect implementations.
+ Some of the important impacts on implementations migrating from earlier versions of the standard are highlighted in
+ Section M.
+
+G. Changes in the Unicode Standard Annexes
+
+In Version 17.0, some of the Unicode Standard Annexes have had significant revisions. The most important of these changes are listed below. For the full details of all changes, see the Modifications section
+ of each UAX, linked directly from the following list of UAXes.
+
+Unicode Standard Annex
+
+Changes
+
+ UAX #9
+Unicode Bidirectional Algorithm
+
+No significant changes in this version.
+
+ UAX
+ #11
+East Asian Width
+
+No significant changes in this version.
+
+ UAX
+ #14
+Unicode Line Breaking Algorithm
+
+A new class Unambiguous_Hyphen (HH) has been split off from the class BA. There are updates to rules LB20a, LB21a, LB12, and LB21.
+ The descriptions of classes CM and GL have been updated to reflect the change in the Line_Break property of U+034F COMBINING GRAPHEME JOINER.
+ Various updates to text regarding hyphens.
+
+ UAX
+ #15
+Unicode Normalization Forms
+
+No significant changes in this version.
+
+ UAX
+ #24
+Unicode Script Property
+
+No significant changes in this version.
+
+ UAX
+ #29
+Unicode Text Segmentation
+
+The derivation of Word_Break=ALetter was updated to include
+ U+00B8 CEDILLA, based on usage in Saanich.
+
+ UAX
+ #31
+Unicode Identifiers and Syntax
+
+The description of the mathematical compatibility notation profile has been updated. A note was added about challenges
+ regarding the use of identifiers with the Tibetan script. Bopomofo
+ has been moved to Table 7, Limited Use Scripts. The newly
+ encoded scripts for Unicode 16.0 and for Unicode 17.0 have been added to Table 4, Excluded Scripts.
+
+ UAX
+ #34
+Unicode Named Character Sequences
+
+No significant changes in this version.
+
+ UAX
+ #38
+Unicode Han Database (Unihan)
+
+The provisional kGB7 and kJa properties were removed. The provisional kTayNumeric property was added. The description and syntax of numerous properties were updated. In particular, the kTotalStrokes property no longer supports multiple property values. The addition of UNC characters at the end of Extensions C and E, as well as the new Extension J block, were added to the table in Section 4.4.
+
+ UAX
+ #41
+Common References for Unicode Standard Annexes
+
+All references were updated for Unicode 17.0.
+
+ UAX
+ #42
+Unicode Character Database in XML
+
+New code point attributes, values, and patterns were added for Unicode 17.0. Attributes were removed for deprecated properties: Gr_Link, Hyphen, isc, kGB7, kJa, XO_NFC, XO_NFD, XO_NFKC, XO_NFKD, FC_NFKC. Elements that only contained historical information were removed: normalization-corrections, emoji-sources.
+
+UAX
+ #44
+
+ Unicode Character Database
+
+The documentation was updated to describe the changes to the UCD for
+ Version 17.0. The discussion of obsolete, deprecated, stabilized, and
+ provisional properties has been updated. A new Section 5.3.1 was added
+ to explain the derivation of Indic_Conjunct_Break. Tables 5, 7, and 9 were
+ updated regarding properties for Egyptian hieroglyphs. The discussion of
+ the directory structure for data files was updated to reflect changes for
+ the 17.0 release. Names of three tags in the TangutSources.txt
+ and NushuSources.txt data files have been updated.
+ A cautionary note about loose matching for "isC" has been added.
+
+ UAX #45
+
+ U-Source Ideographs
+
+The table in Section 2.1 was updated to remove WS-2021 as a status value, and to add ExtJ and WS-2024. Section 2.4 was
+ updated to add 6 as a new first residual stroke value. The table in Section 3
+ has been updated to add the new U-source ideographs for Unicode 17.0.
+
+ UAX #50
+
+ Unicode Vertical Text Layout
+
+Section 3.2.4 was updated to remove references to tailoring. Table 3 was
+ updated to add characters newly assigned vo=Tr or vo=Tu property values.
+
+ UAX #53
+
+ Unicode Arabic Mark Rendering
+
+No significant changes in this version.
+
+ UAX #57
+
+ Unicode Egyptian Hieroglyph Database (Unikemet)
+
+A new appendix on encoding principles has been added. The
+ description of kEH_NoMirror was updated. A new property kEH_AltSeq has been added.
+
+H. Changes in Synchronized Unicode Technical Standards
+
+There are also significant revisions in the Unicode Technical Standards whose
+ versions are synchronized with the Unicode Standard. The most important of these changes are listed below.
+ For the full details of all changes, see the Modifications section
+ of each UTS, linked directly from the following list of UTSes.
+
+Unicode Technical Standard
+
+Changes
+
+UTS #10
+Unicode Collation Algorithm
+
+Conformance test documentation was moved from CollationTest.html into
+ a new section in the specification. The implicit weighting for Tangut ideographs and components was adjusted in Table 10.
+ The documentation regarding the location of the associated data
+ files has been updated.
+
+UTS #39
+Unicode Security Mechanisms
+
+A new section 3.1.2, Choosing Identifer_Type Values has been
+ added to the specification. In Section 3.2, IDN Security Profiles for Identifiers, a discussion has been added regarding the security
+ profile developed by IETF and ICANN for international domain names. The documentation regarding the location of the associated data
+ files has been updated. References to the obsolete forms for
+ reporting suggestions were removed from the text.
+
+UTS #46
+Unicode IDNA Compatibility Processing
+
+The documentation regarding the location of the associated data
+ files has been updated.
+
+UTS #51
+Unicode Emoji
+
+Standalone_Component has been added to ED-28, RGI_Emoji_Qualifcation. The discussion and examples for multi-person groupings were consolidated. The documentation regarding the location of the associated data
+ files has been updated.
+
+I. List of Components
+
+This section lists the components of Version 17.0.0 of the Unicode
+ Standard. The version numbering and the role of each component are
+ explained in
+ Versions of The Unicode Standard.
+
+Core Specification
+
+Authoritative HTML
+
+ Archival PDF: UnicodeStandard-17.0.pdf (size: 13 MB)
+
+Code Charts and Radical-Stroke Index
+
+ Code Charts (size: 134 MB)
+
+ Radical-Stroke Index (size: 48 MB)
+
+ Radical-Stroke Index data
+
+ Unicode Standard Annexes
+
+ UAX #9: Unicode Bidirectional Algorithm
+
+ UAX #11: East Asian Width
+
+ UAX #14: Unicode Line Breaking Algorithm
+
+ UAX #15: Unicode Normalization Forms
+
+ UAX #24: Unicode Script Property
+
+ UAX #29: Unicode Text Segmentation
+
+ UAX #31: Unicode Identifiers and Syntax
+
+ UAX #34: Unicode Named Character Sequences
+
+ UAX #38: Unicode Han Database (Unihan)
+
+ UAX #41: Common References for Unicode Standard Annexes
+
+ UAX #42: Unicode Character Database in XML
+
+ UAX #44: Unicode Character Database
+
+ UAX #45: U-Source Ideographs
+
+ UAX #50: Unicode Vertical Text Layout
+
+ UAX #53: Unicode Arabic Mark Rendering
+
+ UAX #57: Unicode Egyptian Hieroglyph Database (Unikemet)
+
+Unicode Character Database
+
+ https://www.unicode.org/Public/17.0.0/
+
+Documentation
+
+ Index.txt
+
+ NamesList.html
+
+ ReadMe.txt
+
+Core Data
+
+ ArabicShaping.txt
+
+ BidiBrackets.txt
+
+ BidiMirroring.txt
+
+ Blocks.txt
+
+ CJKRadicals.txt
+
+ CompositionExclusions.txt
+
+ DoNotEmit.txt
+
+ EastAsianWidth.txt
+
+ EmojiSources.txt
+
+ EquivalentUnifiedIdeograph.txt
+
+ HangulSyllableType.txt
+
+ IndicPositionalCategory.txt
+
+ IndicSyllabicCategory.txt
+
+ Jamo.txt
+
+ LineBreak.txt
+
+ NameAliases.txt
+
+ NamedSequences.txt
+
+ NamedSequencesProv.txt
+
+ NamesList.txt
+
+ NormalizationCorrections.txt
+
+ NushuSources.txt
+
+ PropertyAliases.txt
+
+ PropertyValueAliases.txt
+
+ PropList.txt
+
+ Scripts.txt
+
+ ScriptExtensions.txt
+
+ SpecialCasing.txt
+
+ StandardizedVariants.txt
+
+ TangutSources.txt
+
+ UnicodeData.txt
+
+ Unikemet.txt
+
+ VerticalOrientation.txt
+
+ Unihan Database (Unihan.zip)
+
+Unihan_DictionaryIndices.txt
+
+Unihan_DictionaryLikeData.txt
+
+Unihan_IRGSources.txt
+
+Unihan_NumericValues.txt
+
+Unihan_OtherMappings.txt
+
+Unihan_RadicalStrokeCounts.txt
+
+Unihan_Readings.txt
+
+Unihan_Variants.txt
+
+Data for UAX #45
+
+ USourceData.txt
+
+ USourceGlyphs.pdf
+
+ USourceRSChart.pdf
+
+Derived Data
+
+ CaseFolding.txt
+
+ DerivedAge.txt
+
+ DerivedCoreProperties.txt
+
+ DerivedNormalizationProps.txt
+
+Extracted Data
+
+ DerivedBidiClass.txt
+
+ DerivedBinaryProperties.txt
+
+ DerivedCombiningClass.txt
+
+ DerivedDecompositionType.txt
+
+ DerivedEastAsianWidth.txt
+
+ DerivedGeneralCategory.txt
+
+ DerivedJoiningGroup.txt
+
+ DerivedJoiningType.txt
+
+ DerivedLineBreak.txt
+
+ DerivedName.txt
+
+ DerivedNumericType.txt
+
+ DerivedNumericValues.txt
+
+Conformance Test Data
+
+ BidiCharacterTest.txt
+
+ BidiTest.txt
+
+ NormalizationTest.txt
+
+Auxiliary Data for UAX #14 and UAX #29
+
+ GraphemeBreakProperty.txt
+
+ GraphemeBreakTest.txt
+
+ LineBreakTest.txt
+
+ SentenceBreakProperty.txt
+
+ SentenceBreakTest.txt
+
+ WordBreakProperty.txt
+
+ WordBreakTest.txt
+
+Documentation for Auxiliary Data
+
+ GraphemeBreakTest.html
+
+ LineBreakTest.html
+
+ SentenceBreakTest.html
+
+ WordBreakTest.html
+
+Emoji Data
+
+ emoji-data.txt
+
+ emoji-variation-sequences.txt
+
+M. Implications for Migration
+
+There are a significant number of changes in Unicode 17.0 which may impact implementations upgrading
+ to Version 17.0 from earlier versions of the standard. The most important of these are listed
+ and explained here, to help focus on the issues most likely to cause unexpected trouble during upgrades.
+
+Core Specification Changes
+
+The navigation bar for the core specification has been improved. New content has been added for Unicode 17.0, and many other improvements have been made to the text. In particular, many tables have been updated for better display, and the representative glyphs for many more Unicode characters in examples and citations are now displayed directly in the text.
+
+Script-related Changes
+
+There are four new scripts encoded in Unicode 17.0. One of these scripts,
+ Tai Yo, has complex layout.
+
+General Character Property Issues
+
+- Note the change of field labels in TangutSources.txt and NushuSources.txt.
+
+Security and Identifier-related Issues (See UAX #31 and UTS #39.)
+
+The Identifier_Type character property affects which characters are included in the General Security Profile for identifiers, which is a default recommendation for identifiers used in secure contexts. Depending on the Identifier_Type property value, characters are included (Identifier_Status = Allowed) or excluded (Identifier_Status = Restricted).
+
+For Unicode 17.0, the assignments of Identifier_Type for all existing characters in recommended scripts were reviewed and updated to match the best currently available data on usage. Note changes to Identifier_Type for numerous characters, particularly those whose associated Identifier_Status changed from Allowed to Restricted. See Choosing Identifier_Type Values in UTS #39 for an associated explanation of the rationale behind these changes.
+
+- Han Ideographs—instead of making all ideographs Recommended by default, they are now all Uncommon_Use, except for one fixed set of 19,842 Han ideographs in modern common use that are widely implemented across identifier systems. This changes the Identifier_Status of 77,838 Han characters from Allowed to Restricted
+
+- Non ideographic characters—as result of review, the following changes occurred:
+
+- 36 existing characters changed to Identifier_Status = Allowed as a result of Identifier_Type changes to Recommended or Inclusion.
+
+- 1,099 characters changed to Identifier_Status = Restricted as a result of Identifier_Type changes to Obsolete, Technical or Uncommon_Use.
+
+- Some characters changed Identifier_Type without affecting their Identifier_Status as Restricted.
+
+- Bopomofo—the Bopomofo script is primarily limited to educational use. As a result the script has been reclassified as Limited_Use, making 74 Bopomofo characters Restricted.
+
+- One newly-encoded character was assigned Identifier_Status = Allowed.
+
+Segmentation (See UAX #14.)
+
+UTC 181 approved a significant change to the linebreaking algorithm that introduces a new Line_Break character property value, Unambiguous_Hyphen. The need for this originated in changes related to handling of hyphens in Hebrew that had been approved for Unicode 16.0 (see decision 179-C25) but that proved to be problematic when being implemented in ICU. A temporary fix was made for Unicode 16.0 (see 180-C18 and section 5.6 of L2/24-162). The change for Unicode 17.0 is a more complete fix to those issues. See 181-C53 and section 6.1 of L2/24-224 for complete details.
+
+U+034F COMBINING GRAPHEME JOINER (CGJ) is not frequently used but is essential for certain situations, including in German and in Biblical Hebrew text. Although CGJ was first added to Unicode 3.2 in 2002, it has been difficult to specify stable character properties and segmentation rules for it. An analysis of the issues has now been done. A detailed history of how the handling of this character in Unicode’s specifications has evolved over the years has been added to UAX #14. See Section 6.3 of L2/24-224 for details.
+
+Numeric Property Issues
+
+There is one new set of decimal digits added in Unicode 17.0, for the newly encoded Tolong Siki script. Implementations of numeric values and numeric formatting
+ should take this new set into account.
+
+CJK/Unihan Changes
+
+- The new CJK Unified Ideographs Extension J block with 4,298 ideographs pushes the number of CJK ideographs to over 100,000.
+
+- 18 urgently needed ideographs were added to the ends of the Extension C and D blocks.
+
+- horizontal extension for 2,144 G-source ideographs
+
+- horizontal extension for 306 K-source ideographs
+
+- changes to 1,694 G-source references
+
+- kTotalStrokes syntax change
+
+- glyph changes for 47 G-source ideographs
+
+- glyph changes for 384 T-source ideographs
+
+- glyph changes for 340 J-source ideographs
+
+- glyph changes for 1 K-source ideograph
+
+- glyph changes for 26 V-source ideographs
+
+See UAX
+ #38, Unicode Han Database (Unihan) for further details on these changes
+
+Standardized Variation Sequences
+
+- A significant number of new standardized variation sequences have
+ been added in Version 17.0, including 42 sequences for rotated forms
+ of Egyptian hieroglyphs and 4 sequences for Sibe forms of quotation
+ marks.
+
+Changes to Code Charts
+
+- There are a number of other Han glyph updates.
+
+- Other glyph updates are listed explicitly in the
+ delta charts index page.
+
+- The two code charts for Egyptian hieroglyphs contain extensive functional and phonetic
+ information derived from the data file Unikemet.txt, and have notable further updates for Version 17.0.
+
+Collation-related Changes
+
+The former documentation file, CollationTest.html, has been merged into a
+ new section of UTS #10.
+
+The DUCET ordering of Tangut components with respect to Tangut ideographs
+ has been modified. See Table 16, Computing Implicit Weights, in UTS #10 for details.
+
+Emoji Changes
+
+For details about emoji changes, see the Unicode 17.0 emoji charts and Emoji Recently Added, v17.0.

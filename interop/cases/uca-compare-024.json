@@ -1,0 +1,25 @@
+{
+  "id": "uca-compare-024",
+  "op": "ucaCompare",
+  "input": {
+    "a": {
+      "v": 1,
+      "kind": "string",
+      "text": "café"
+    },
+    "b": {
+      "v": 1,
+      "kind": "string",
+      "text": "café"
+    },
+    "options": {
+      "strength": 3,
+      "alternate": "non-ignorable",
+      "normalization": "nfd",
+      "illFormed": "replace"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "pack-v1-emoji-003",
+  "op": "packTextV1",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "👩🏽‍💻 emoji ZWJ"
+    },
+    "opts": {
+      "includeInputText": true,
+      "sections": {
+        "fingerprint": true,
+        "segment": true
+      },
+      "maxFingerprints": 10
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:314c1d112c443931d330c3e07c1c4f5b090b3b81e1cbc9e6821b76ad3764d31b"
+  }
+}

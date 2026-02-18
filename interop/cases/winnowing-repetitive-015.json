@@ -1,0 +1,21 @@
+{
+  "id": "winnowing-repetitive-015",
+  "op": "winnowingFingerprints",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "aaaaaa aaaaaa aaaaaa"
+    },
+    "options": {
+      "tokenizer": "uax29-word",
+      "canonicalKey": "raw",
+      "k": 2,
+      "window": 3,
+      "dedupe": "by-hash"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:686dee6191790f413c9180dd1cd208f056bd07cab00f782172fe7e5aa96b1566"
+  }
+}

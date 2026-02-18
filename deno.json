@@ -1,0 +1,31 @@
+{
+  "name": "@textfacts/textfacts",
+  "version": "0.1.0",
+  "publish": {
+    "include": ["mod.ts", "src/", "README.md", "LICENSE", "CHANGELOG.md", "deno.json"]
+  },
+  "exports": {
+    ".": "./mod.ts",
+    "./all": "./src/all/mod.ts",
+    "./core": "./src/core/mod.ts",
+    "./segment": "./src/segment/mod.ts",
+    "./facts": "./src/facts/mod.ts",
+    "./normalize": "./src/normalize/mod.ts",
+    "./casefold": "./src/casefold/mod.ts",
+    "./linebreak": "./src/linebreak/mod.ts",
+    "./bidi": "./src/bidi/mod.ts",
+    "./security": "./src/security/mod.ts",
+    "./variants": "./src/variants/mod.ts",
+    "./hash": "./src/hash/mod.ts",
+    "./collation": "./src/collation/mod.ts",
+    "./compare": "./src/compare/mod.ts",
+    "./integrity": "./src/integrity/mod.ts",
+    "./jcs": "./src/jcs/mod.ts",
+    "./protocol": "./src/protocol/mod.ts",
+    "./schema": "./src/schema/mod.ts",
+    "./toolspec": "./src/toolspec/mod.ts",
+    "./pack": "./src/pack/mod.ts",
+    "./unicode": "./src/unicode/mod.ts",
+    "./idna": "./src/idna/mod.ts"
+  }
+}

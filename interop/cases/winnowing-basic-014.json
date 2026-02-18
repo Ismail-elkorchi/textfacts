@@ -1,0 +1,20 @@
+{
+  "id": "winnowing-basic-014",
+  "op": "winnowingFingerprints",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "alpha beta alpha beta gamma"
+    },
+    "options": {
+      "tokenizer": "uax29-word",
+      "canonicalKey": "raw",
+      "k": 2,
+      "window": 2
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:9205c2cfdbe94d7aeba4af015735eb6fa1d3613eb69074f43adc2be540a36748"
+  }
+}

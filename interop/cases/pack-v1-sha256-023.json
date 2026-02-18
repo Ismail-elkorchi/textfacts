@@ -1,0 +1,17 @@
+{
+  "id": "pack-v1-sha256-023",
+  "op": "packTextV1Sha256",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "Hello world"
+    },
+    "opts": {
+      "includeInputText": true
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:13b2ba17273c7f68cc9f2686492c5b661ce2c583b3767000a3591440c126c789"
+  }
+}

@@ -1,0 +1,3 @@
+High surrogate: \uD800
+Low surrogate: \uDC00
+Mix: A\uD800B\uDC00C

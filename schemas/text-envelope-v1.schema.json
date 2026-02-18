@@ -1,0 +1,50 @@
+{
+  "$id": "https://textfacts.dev/schema/text-envelope-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TextEnvelopeV1",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v", "kind", "text"],
+      "properties": {
+        "v": { "const": 1 },
+        "kind": { "const": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v", "kind", "base64"],
+      "properties": {
+        "v": { "const": 1 },
+        "kind": { "const": "utf8-base64" },
+        "base64": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v", "kind", "base64"],
+      "properties": {
+        "v": { "const": 1 },
+        "kind": { "const": "utf16le-base64" },
+        "base64": { "type": "string" }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v", "kind", "codeUnits"],
+      "properties": {
+        "v": { "const": 1 },
+        "kind": { "const": "utf16-code-units" },
+        "codeUnits": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0, "maximum": 65535 }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "confusable-skeleton-012",
+  "op": "confusableSkeleton",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "paypaI"
+    },
+    "opts": {
+      "normalization": "NFKD",
+      "caseFold": true
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:8ae3ddfd22e281c67db3ca8b9c7234b2ff100eb9b9aee6bd4deb186370821866"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "pack-v1-lone-surrogate-005",
+  "op": "packTextV1",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "utf16le-base64",
+      "base64": "QQAA2EIA"
+    },
+    "opts": {
+      "includeInputText": true,
+      "sections": {
+        "integrity": true
+      }
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:3c1ba1e7af58e9db6bdee3fd081b3ed3045c2dca507a1d00d9618c1ec1f2a42b"
+  }
+}

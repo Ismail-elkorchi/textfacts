@@ -1,0 +1,14 @@
+{
+  "id": "uts46-joiner-rule-022",
+  "op": "uts46ToUnicode",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "a‌b"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:e603117c76575678aedd10046ad92d42ab4080203d2e40212286c0092793298c"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$id": "https://textfacts.dev/schema/docs-manifest-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocsManifestV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["v", "generatedAt", "docs"],
+  "properties": {
+    "v": { "const": 1 },
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "docs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "path", "title", "kind", "status", "summary"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["tutorial", "howto", "reference", "explanation"] },
+          "status": { "enum": ["active", "superseded", "generated"] },
+          "canonicalFor": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "supersededBy": { "type": "string", "minLength": 1 },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "summary": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

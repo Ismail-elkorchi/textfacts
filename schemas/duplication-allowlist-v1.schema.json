@@ -1,0 +1,24 @@
+{
+  "$id": "https://textfacts.dev/schema/duplication-allowlist-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DuplicationAllowlistV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["v", "entries"],
+  "properties": {
+    "v": { "const": 1 },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fileA", "fileB", "justification"],
+        "properties": {
+          "fileA": { "type": "string", "minLength": 1 },
+          "fileB": { "type": "string", "minLength": 1 },
+          "justification": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

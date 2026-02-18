@@ -1,0 +1,14 @@
+{
+  "id": "envelope-roundtrip-emoji-007",
+  "op": "textEnvelopeRoundtrip",
+  "input": {
+    "text": {
+      "v": 1,
+      "kind": "string",
+      "text": "👩🏽‍💻"
+    }
+  },
+  "expect": {
+    "jcsSha256": "sha256:a9d418dc1a8e80ec2c4b02a1bd380675ce99b2e0d04866c0229f86ba0197c03c"
+  }
+}

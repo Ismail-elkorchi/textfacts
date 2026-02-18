@@ -1,0 +1,464 @@
+{
+  "$id": "https://textfacts.dev/schema/pack-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TextfactsPackV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["v", "build", "provenance"],
+  "properties": {
+    "v": { "const": 1 },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["textfactsVersion", "unicodeVersion", "algorithmRevision"],
+      "properties": {
+        "textfactsVersion": { "type": "string" },
+        "unicodeVersion": { "const": "17.0.0" },
+        "algorithmRevision": { "type": "string" }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": { "$ref": "text-envelope-v1.schema.json" }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile": { "$ref": "#/$defs/integrityProfile" }
+      }
+    },
+    "unicode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scripts",
+        "generalCategories",
+        "normalization",
+        "bidiControls",
+        "defaultIgnorables"
+      ],
+      "properties": {
+        "scripts": { "$ref": "#/$defs/scriptCounts" },
+        "generalCategories": { "$ref": "#/$defs/categoryCounts" },
+        "normalization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["nfcChanged", "nfdChanged", "nfkcChanged", "nfkdChanged"],
+          "properties": {
+            "nfcChanged": { "type": "boolean" },
+            "nfdChanged": { "type": "boolean" },
+            "nfkcChanged": { "type": "boolean" },
+            "nfkdChanged": { "type": "boolean" }
+          }
+        },
+        "bidiControls": { "type": "integer", "minimum": 0 },
+        "defaultIgnorables": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["graphemes", "words", "sentences"],
+      "properties": {
+        "graphemes": { "$ref": "#/$defs/segmentSummary" },
+        "words": { "$ref": "#/$defs/segmentSummary" },
+        "sentences": { "$ref": "#/$defs/segmentSummary" }
+      }
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["totalTokens", "mixedScriptTokens", "skeletonCollisions"],
+      "properties": {
+        "totalTokens": { "type": "integer", "minimum": 0 },
+        "mixedScriptTokens": { "type": "integer", "minimum": 0 },
+        "skeletonCollisions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["count"],
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "truncated": { "type": "boolean" },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["skeleton", "totalCount", "distinctForms"],
+                "properties": {
+                  "skeleton": { "$ref": "text-envelope-v1.schema.json" },
+                  "totalCount": { "type": "integer", "minimum": 0 },
+                  "distinctForms": { "type": "integer", "minimum": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variants", "totalTokens", "provenance"],
+      "properties": {
+        "variants": { "type": "array", "items": { "$ref": "#/$defs/variantEntry" } },
+        "totalTokens": { "type": "integer", "minimum": 0 },
+        "truncated": { "type": "boolean" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "profile": { "$ref": "#/$defs/surfaceProfile" },
+    "fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "provenance"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 0 },
+        "fingerprints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["hash64Hex", "tokenIndex", "span"],
+            "properties": {
+              "hash64Hex": { "type": "string" },
+              "tokenIndex": { "type": "integer", "minimum": 0 },
+              "span": { "$ref": "#/$defs/span" }
+            }
+          }
+        },
+        "truncated": { "type": "boolean" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "collation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokens", "options"],
+      "properties": {
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["token", "sortKeyHex"],
+            "properties": {
+              "token": { "$ref": "text-envelope-v1.schema.json" },
+              "sortKeyHex": { "type": "string" }
+            }
+          }
+        },
+        "truncated": { "type": "boolean" },
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "strength",
+            "alternate",
+            "normalization",
+            "illFormed",
+            "includeIdenticalLevel"
+          ],
+          "properties": {
+            "strength": { "type": "integer", "enum": [1, 2, 3, 4] },
+            "alternate": { "enum": ["non-ignorable", "shifted"] },
+            "normalization": { "enum": ["nfd", "none"] },
+            "illFormed": { "enum": ["error", "replace", "implicit"] },
+            "includeIdenticalLevel": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startCU", "endCU"],
+      "properties": {
+        "startCU": { "type": "integer", "minimum": 0 },
+        "endCU": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "segmentSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 0 },
+        "spans": { "type": "array", "items": { "$ref": "#/$defs/span" } },
+        "spansTruncated": { "type": "boolean" }
+      }
+    },
+    "integrityFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "span", "codePoint"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "lone-surrogate",
+            "default-ignorable",
+            "bidi-control",
+            "join-control",
+            "variation-selector",
+            "noncharacter"
+          ]
+        },
+        "span": { "$ref": "#/$defs/span" },
+        "codePoint": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "integrityProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wellFormed", "counts", "samples"],
+      "properties": {
+        "wellFormed": { "type": "boolean" },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lone-surrogate",
+            "default-ignorable",
+            "bidi-control",
+            "join-control",
+            "variation-selector",
+            "noncharacter"
+          ],
+          "properties": {
+            "lone-surrogate": { "type": "integer", "minimum": 0 },
+            "default-ignorable": { "type": "integer", "minimum": 0 },
+            "bidi-control": { "type": "integer", "minimum": 0 },
+            "join-control": { "type": "integer", "minimum": 0 },
+            "variation-selector": { "type": "integer", "minimum": 0 },
+            "noncharacter": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "samples": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lone-surrogate": { "type": "array", "items": { "$ref": "#/$defs/integrityFinding" } },
+            "default-ignorable": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/integrityFinding" }
+            },
+            "bidi-control": { "type": "array", "items": { "$ref": "#/$defs/integrityFinding" } },
+            "join-control": { "type": "array", "items": { "$ref": "#/$defs/integrityFinding" } },
+            "variation-selector": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/integrityFinding" }
+            },
+            "noncharacter": { "type": "array", "items": { "$ref": "#/$defs/integrityFinding" } }
+          }
+        }
+      }
+    },
+    "scriptCounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["script", "count"],
+        "properties": {
+          "script": { "type": "string" },
+          "count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "categoryCounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "count"],
+        "properties": {
+          "category": { "type": "string" },
+          "count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "variantEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "totalCount",
+        "distinctForms",
+        "forms",
+        "scriptsSummary",
+        "hasMixedScriptAny"
+      ],
+      "properties": {
+        "key": { "$ref": "text-envelope-v1.schema.json" },
+        "totalCount": { "type": "integer", "minimum": 0 },
+        "distinctForms": { "type": "integer", "minimum": 0 },
+        "forms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["form", "count", "firstSpanCU", "exampleSpansCU"],
+            "properties": {
+              "form": { "$ref": "text-envelope-v1.schema.json" },
+              "count": { "type": "integer", "minimum": 0 },
+              "firstSpanCU": { "$ref": "#/$defs/span" },
+              "exampleSpansCU": { "type": "array", "items": { "$ref": "#/$defs/span" } }
+            }
+          }
+        },
+        "scriptsSummary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["script", "count"],
+            "properties": {
+              "script": { "type": "string" },
+              "count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "hasMixedScriptAny": { "type": "boolean" }
+      }
+    },
+    "surfaceProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "unicode", "segmentation", "punctuationWhitespace", "provenance"],
+      "properties": {
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["codeUnits", "codePoints", "bytes"],
+          "properties": {
+            "codeUnits": { "type": "integer", "minimum": 0 },
+            "codePoints": { "type": "integer", "minimum": 0 },
+            "bytes": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "unicode": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["generalCategories", "scripts", "normalization", "bidiControls"],
+          "properties": {
+            "generalCategories": { "$ref": "#/$defs/categoryCounts" },
+            "scripts": { "$ref": "#/$defs/scriptCounts" },
+            "normalization": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["nfcChanged", "nfdChanged", "nfkcChanged", "nfkdChanged"],
+              "properties": {
+                "nfcChanged": { "type": "boolean" },
+                "nfdChanged": { "type": "boolean" },
+                "nfkcChanged": { "type": "boolean" },
+                "nfkdChanged": { "type": "boolean" }
+              }
+            },
+            "bidiControls": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "segmentation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["graphemes", "words", "sentences"],
+          "properties": {
+            "graphemes": { "type": "integer", "minimum": 0 },
+            "words": { "type": "integer", "minimum": 0 },
+            "sentences": { "type": "integer", "minimum": 0 },
+            "wordLengthHistogram": { "$ref": "#/$defs/lengthHistogram" },
+            "sentenceLengthHistogram": { "$ref": "#/$defs/lengthHistogram" }
+          }
+        },
+        "punctuationWhitespace": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["punctuation", "whitespace"],
+          "properties": {
+            "punctuation": { "type": "integer", "minimum": 0 },
+            "whitespace": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "ngrams": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "charNgrams": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["n", "total", "items"],
+                "properties": {
+                  "n": { "type": "integer", "minimum": 1 },
+                  "total": { "type": "integer", "minimum": 0 },
+                  "truncated": { "type": "boolean" },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": ["gram", "count"],
+                      "properties": {
+                        "gram": { "$ref": "text-envelope-v1.schema.json" },
+                        "count": { "type": "integer", "minimum": 0 }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "lengthHistogram": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bins", "overflow"],
+      "properties": {
+        "bins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["max", "count"],
+            "properties": {
+              "max": { "type": "integer", "minimum": 0 },
+              "count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "overflow": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unicodeVersion", "algorithm", "configHash", "units"],
+      "properties": {
+        "unicodeVersion": { "type": "string" },
+        "algorithm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "spec", "revisionOrDate", "implementationId"],
+          "properties": {
+            "name": { "type": "string" },
+            "spec": { "type": "string" },
+            "revisionOrDate": { "type": "string" },
+            "implementationId": { "type": "string" }
+          }
+        },
+        "configHash": { "type": "string" },
+        "units": { "type": "object" }
+      }
+    }
+  }
+}
