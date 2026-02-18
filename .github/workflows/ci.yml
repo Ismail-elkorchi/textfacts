@@ -1,8 +1,14 @@
 name: CI
 
 on:
-  push:
   pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -56,6 +62,12 @@ jobs:
 
       - name: Test All
         run: npm run test:all
+
+      - name: Interop Verify
+        run: node tools/interop/verify.mjs
+
+      - name: Docs Audit
+        run: node tools/docs/audit.mjs
 
       - name: Generated Files (no drift)
         run: git diff --exit-code
