@@ -1,14 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 const ROOT = process.cwd();
 const GLOSSARY_PATH = path.join(ROOT, "docs", "terminology", "glossary.v1.json");
 const EXCLUDE_DIRS = new Set(["node_modules", "dist", "dist-test", "specs", ".git"]);
 const ISSUE_LIMIT = 50;
 
-function runShellCommand(commandText) {
-  return execSync(commandText, {
+function runGitCommand(args) {
+  return execFileSync("git", args, {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   }).trimEnd();
@@ -16,7 +16,7 @@ function runShellCommand(commandText) {
 
 function resolveRef(ref) {
   try {
-    return runShellCommand(`git rev-parse ${ref}`);
+    return runGitCommand(["rev-parse", ref]);
   } catch {
     return null;
   }
@@ -38,7 +38,7 @@ function determineDiffRange() {
         const baseSha = resolveRef(candidate);
         if (baseSha && headSha) {
           try {
-            const mergeBase = runShellCommand(`git merge-base ${headSha} ${baseSha}`);
+            const mergeBase = runGitCommand(["merge-base", headSha, baseSha]);
             return `${mergeBase}..${headSha}`;
           } catch {
             return `${baseSha}..${headSha}`;
@@ -174,7 +174,7 @@ async function main() {
     const range = determineDiffRange();
     let diffText = "";
     try {
-      diffText = runShellCommand(`git diff --unified=0 ${range} -- "*.md"`);
+      diffText = runGitCommand(["diff", "--unified=0", range, "--", "*.md"]);
     } catch {
       diffText = "";
     }
