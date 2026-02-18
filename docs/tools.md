@@ -9,6 +9,7 @@ This page lists operational commands that are expected for normal repository use
 ## Validation
 - `npm run schema:validate` — validate JSON Schema contracts.
 - `npm run lint` — Biome checks.
+- `npm run check:static` — TypeScript static checks (`noUnusedLocals` + `noUnusedParameters`) for shipped source.
 - `npm run format` — Biome formatting.
 
 ## Tests
@@ -28,3 +29,4 @@ This page lists operational commands that are expected for normal repository use
 ## Scope Boundary
 - Maintenance tooling lives in `tools/`; verification outputs are local to the command’s workspace.
 - Scheduled/background automation is intentionally excluded from this repository.
+- CodeQL runs security queries; quality checks run in CI lint/static/package gates.
